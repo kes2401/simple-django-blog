@@ -8,7 +8,7 @@ def get_posts(request):
     Create a view that returns a list of published posts,
     and render to 'blogposts.html' template
     """
-    posts = Post.objects.filter(published_date__lte=timezone.now().order_by('-published_date'))
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blogposts.html', {'posts': posts})
 
 def post_detail(request, pk):
